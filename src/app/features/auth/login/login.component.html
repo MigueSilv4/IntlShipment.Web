@@ -1,53 +1,69 @@
 <div class="page">
-  <div class="left">
-    <div>
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="ti ti-ship"></i>
-        </div>
+    <div class="left">
         <div>
-          <div class="brand-name">IntlShipment</div>
-          <div class="brand-sub">Global Logistics Platform</div>
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="ti ti-ship"></i>
+                </div>
+                <div>
+                    <div class="brand-name">IntlShipment</div>
+                    <div class="brand-sub">Global Logistics Platform</div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>Gestión de envíos internacionales en tiempo real</h1>
+                <p>Trazabilidad completa, documentación aduanera y coordinación de fletes desde una sola plataforma.</p>
+            </div>
         </div>
-      </div>
-      <div class="hero-text">
-        <h1>Gestión de envíos internacionales en tiempo real</h1>
-        <p>Trazabilidad completa, documentación aduanera y coordinación de fletes desde una sola plataforma.</p>
-      </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-val">+12k</div>
+                <div class="stat-lbl">Envíos activos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-val">98.4%</div>
+                <div class="stat-lbl">Entregas a tiempo</div>
+            </div>
+            <div class="stat">
+                <div class="stat-val">47</div>
+                <div class="stat-lbl">Países cubiertos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-val">24/7</div>
+                <div class="stat-lbl">Soporte operativo</div>
+            </div>
+        </div>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="stat-val">+12k</div><div class="stat-lbl">Envíos activos</div></div>
-      <div class="stat"><div class="stat-val">98.4%</div><div class="stat-lbl">Entregas a tiempo</div></div>
-      <div class="stat"><div class="stat-val">47</div><div class="stat-lbl">Países cubiertos</div></div>
-      <div class="stat"><div class="stat-val">24/7</div><div class="stat-lbl">Soporte operativo</div></div>
-    </div>
-  </div>
 
-  <div class="right">
-    <div class="form-title">Iniciar sesión</div>
-    <div class="form-sub">Accede a tu cuenta corporativa</div>
-    <div *ngIf="error" class="error-msg">{{ error }}</div>
-    <div class="field">
-      <label>Correo electrónico</label>
-      <div class="field-wrap">
-        <i class="ti ti-mail"></i>
-        <input type="email" placeholder="usuario@empresa.com" [(ngModel)]="credentials.email" />
-      </div>
+    <div class="right">
+        <div class="form-title">Iniciar sesión</div>
+        <div class="form-sub">Accede a tu cuenta corporativa</div>
+        <div *ngIf="error" class="error-msg">{{ error }}</div>
+        <div class="field">
+            <label>Correo electrónico</label>
+            <div class="field-wrap">
+                <i class="ti ti-mail"></i>
+                <input type="email" placeholder="usuario@empresa.com" [(ngModel)]="credentials.email" />
+            </div>
+        </div>
+        <div class="field">
+            <label>Contraseña</label>
+            <div class="field-wrap">
+                <i class="ti ti-lock"></i>
+                <input type="password" placeholder="••••••••" [(ngModel)]="credentials.password" />
+            </div>
+        </div>
+        <button class="btn-login" (click)="login()">
+            <i class="ti ti-arrow-right"></i>
+            Ingresar al sistema
+        </button>
+        <div class="create-account">
+            ¿No tienes cuenta?
+            <a routerLink="/register">Crear cuenta</a>
+        </div>
+        <div class="secure">
+            <i class="ti ti-shield-check"></i>
+            <span>Acceso protegido con JWT · SSL/TLS</span>
+        </div>
     </div>
-    <div class="field">
-      <label>Contraseña</label>
-      <div class="field-wrap">
-        <i class="ti ti-lock"></i>
-        <input type="password" placeholder="••••••••" [(ngModel)]="credentials.password" />
-      </div>
-    </div>
-    <button class="btn-login" (click)="login()">
-      <i class="ti ti-arrow-right"></i>
-      Ingresar al sistema
-    </button>
-    <div class="secure">
-      <i class="ti ti-shield-check"></i>
-      <span>Acceso protegido con JWT · SSL/TLS</span>
-    </div>
-  </div>
 </div>
