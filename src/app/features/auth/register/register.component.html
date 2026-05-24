@@ -1,7 +1,42 @@
-<div class="register-container">
-  <h2>Registrarse</h2>
-  <div *ngIf="error" class="error">{{ error }}</div>
-  <input type="email" placeholder="Email" [(ngModel)]="user.email" />
-  <input type="password" placeholder="Contraseña" [(ngModel)]="user.password" />
-  <button (click)="register()">Registrarse</button>
+<div class="page">
+  <div class="left">
+    <div>
+      <div class="brand">
+        <div class="brand-icon"><i class="ti ti-ship"></i></div>
+        <div>
+          <div class="brand-name">IntlShipment</div>
+          <div class="brand-sub">Global Logistics Platform</div>
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1>Únete a la plataforma líder en logística internacional</h1>
+        <p>Gestiona tus envíos, documentación aduanera y fletes desde un solo lugar.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">+12k</div><div class="stat-lbl">Envíos activos</div></div>
+      <div class="stat"><div class="stat-val">98.4%</div><div class="stat-lbl">Entregas a tiempo</div></div>
+      <div class="stat"><div class="stat-val">47</div><div class="stat-lbl">Países cubiertos</div></div>
+      <div class="stat"><div class="stat-val">24/7</div><div class="stat-lbl">Soporte operativo</div></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <h2>Crear cuenta</h2>
+    <p class="sub">Completa los datos para registrarte</p>
+    <div class="error-msg" *ngIf="error">{{ error }}</div>
+    <div class="field">
+      <label>Correo electrónico</label>
+      <input type="email" placeholder="usuario@empresa.com" [(ngModel)]="user.email" />
+    </div>
+    <div class="field">
+      <label>Contraseña</label>
+      <input type="password" placeholder="••••••••" [(ngModel)]="user.password" />
+    </div>
+    <button (click)="register()">Crear cuenta</button>
+    <div class="secure">
+      <i class="ti ti-shield-check"></i>
+      <span>Acceso protegido con JWT · SSL/TLS</span>
+    </div>
+  </div>
 </div>
