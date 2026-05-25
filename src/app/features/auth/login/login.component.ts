@@ -20,7 +20,7 @@ export class LoginComponent {
   login() {
     this.authService.login(this.credentials).subscribe({
       next: (res) => {
-        if (res.success) this.router.navigate(['/dashboard']);
+        if (res.success) this.router.navigate(['/shipments']);
       },
       error: () => this.error = 'Credenciales incorrectas'
     });
