@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 export interface AuthResponse {
   success: boolean;
@@ -13,7 +14,7 @@ export interface AuthResponse {
 export class AuthService {
   private url = `${environment.apiUrl}/auth`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(credentials: { email: string; password: string }) {
     return this.http.post<AuthResponse>(`${this.url}/login`, credentials)
@@ -26,7 +27,9 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.url}/register`, user);
   }
 
-  logout() { localStorage.removeItem('token'); }
+  logout() { localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 
   getToken() { return localStorage.getItem('token'); }
 

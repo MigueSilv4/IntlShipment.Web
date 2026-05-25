@@ -4,8 +4,13 @@
       <h1>Envíos</h1>
       <p class="sub">Gestión de envíos internacionales</p>
     </div>
+    <div class="header-actions">
     <button class="btn-primary" (click)="new()">+ Nuevo envío</button>
   </div>
+  <button class="btn-logout" (click)="onLogout()">
+  <i class="ti ti-logout"></i> Cerrar Sesión
+</button>
+</div>
 
   <div class="error" *ngIf="error">{{ error }}</div>
   <div class="loading" *ngIf="loading">Cargando...</div>

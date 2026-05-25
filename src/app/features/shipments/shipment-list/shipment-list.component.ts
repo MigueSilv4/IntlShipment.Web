@@ -3,6 +3,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common'; // 2. Importa
 import { Router } from '@angular/router';
 import { ShipmentService } from '../../../core/services/shipment.service';
 import { Shipment } from '../../../core/models/shipment.model';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-shipment-list',
@@ -22,7 +23,8 @@ export class ShipmentListComponent implements OnInit {
     private shipmentService: ShipmentService, 
     private router: Router,
     private cdr: ChangeDetectorRef,
-    @Inject(PLATFORM_ID) private platformId: Object 
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private authService: AuthService
   ) {}
 
   ngOnInit() { 
@@ -92,5 +94,9 @@ export class ShipmentListComponent implements OnInit {
       this.pageIndex++; 
       this.load(); 
     } 
+  }
+
+  onLogout(): void {
+    this.authService.logout();
   }
 }

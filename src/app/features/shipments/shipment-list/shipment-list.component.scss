@@ -97,6 +97,7 @@ table {
   .btn-delete { color: #A32D2D; &:hover { background: #FCEBEB; } }
 }
 
+
 .pagination {
   display: flex;
   align-items: center;
@@ -116,4 +117,45 @@ table {
     &:disabled { opacity: 0.4; cursor: not-allowed; }
     &:hover:not(:disabled) { background: #E6F1FB; color: #0C447C; }
   }
+} 
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-actions {
+    display: flex;
+    flex-direction: column; 
+    gap: 8px;             
+    align-items: flex-end;  
+  }
+
+
+.btn-logout {
+    background-color: #d83939;
+    border: 1px solid #d1d5db;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: #f9fafb;
+        border-color: #a32d2d;
+        color: #a32d2d;
+    }
+
+    i {
+        font-size: 16px;
+    }
 }
