@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +15,7 @@ import { AuthService } from '../../../core/services/auth.service';
 export class LoginComponent {
   credentials = { email: '', password: '' };
   error = '';
+  showPassword = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,5 +26,9 @@ export class LoginComponent {
       },
       error: () => this.error = 'Credenciales incorrectas'
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

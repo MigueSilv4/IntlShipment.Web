@@ -50,7 +50,11 @@
             <label>Contraseña</label>
             <div class="field-wrap">
                 <i class="ti ti-lock"></i>
-                <input type="password" placeholder="••••••••" [(ngModel)]="credentials.password" />
+                <input [type]="showPassword ? 'text' : 'password'" placeholder="••••••••"
+                    [(ngModel)]="credentials.password" /> <button type="button" class="btn-toggle-password"
+                    (click)="togglePasswordVisibility()">
+                    {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+                </button>
             </div>
         </div>
         <button class="btn-login" (click)="login()">

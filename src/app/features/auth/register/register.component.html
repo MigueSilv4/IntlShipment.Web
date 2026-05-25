@@ -25,15 +25,28 @@
     <h2>Crear cuenta</h2>
     <p class="sub">Completa los datos para registrarte</p>
     <div class="error-msg" *ngIf="error">{{ error }}</div>
+    
     <div class="field">
       <label>Correo electrónico</label>
-      <input type="email" placeholder="usuario@empresa.com" [(ngModel)]="user.email" />
+      <div class="field-wrap">
+        <i class="ti ti-mail"></i>
+        <input type="email" placeholder="usuario@empresa.com" [(ngModel)]="user.email" />
+      </div>
     </div>
+    
     <div class="field">
       <label>Contraseña</label>
-      <input type="password" placeholder="••••••••" [(ngModel)]="user.password" />
+      <div class="field-wrap">
+        <i class="ti ti-lock"></i>
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="••••••••" [(ngModel)]="user.password" />
+        <button type="button" class="btn-toggle-password" (click)="togglePasswordVisibility()">
+          {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+        </button>
+      </div>
     </div>
+    
     <button (click)="register()">Crear cuenta</button>
+    
     <div class="secure">
       <i class="ti ti-shield-check"></i>
       <span>Acceso protegido con JWT · SSL/TLS</span>

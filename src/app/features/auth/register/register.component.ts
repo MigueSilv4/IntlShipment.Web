@@ -14,8 +14,13 @@ import { AuthService } from '../../../core/services/auth.service';
 export class RegisterComponent {
   user = { email: '', password: '' };
   error = '';
+  showPassword = false;
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   register() {
     this.authService.register(this.user).subscribe({
