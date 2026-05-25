@@ -1,0 +1,210 @@
+// --- Variables de Diseño ---
+$primary-color: #2563eb;       // Azul moderno
+$primary-hover: #1d4ed8;
+$bg-body: #f8fafc;            // Fondo claro/grisáceo
+$surface-card: #ffffff;       // Fondo del formulario
+$text-main: #0f172a;          // Gris muy oscuro para lectura
+$text-muted: #64748b;         // Gris para subtítulos y placeholders
+$border-color: #cbd5e1;       // Gris suave para los bordes
+$border-focus: #3b82f6;       // Azul brillante al hacer foco
+$error-color: #ef4444;        // Rojo para alertas
+$radius: 8px;                 // Bordes redondeados estándar
+$transition: all 0.2s ease-in-out;
+
+// --- Contenedor Principal ---
+.container {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: $text-main;
+}
+
+// --- Cabecera ---
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: $text-main;
+  }
+
+  .sub {
+    font-size: 0.925rem;
+    color: $text-muted;
+    margin: 0;
+  }
+}
+
+// --- Alerta de Error ---
+.error {
+  background-color: #fef2f2;
+  color: $error-color;
+  border: 1px solid #fee2e2;
+  padding: 1rem;
+  border-radius: $radius;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+// --- Tarjeta del Formulario ---
+.form-card {
+  background: $surface-card;
+  border: 1px solid #e2e8f0;
+  border-radius: $radius;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+// --- Secciones Internas del Formulario ---
+.section {
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+
+  &:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.01em;
+  }
+}
+
+// --- Sistema de Rejilla (Responsive Grid) ---
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  // En pantallas móviles los campos se apilan en una sola columna
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// --- Campos de Entrada (Fields) ---
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  // Estilos comunes para Inputs, Selects y Textareas
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    color: $text-main;
+    transition: $transition;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $border-focus;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none; // Quita el estilo nativo para mayor control
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+  }
+}
+
+// --- Botones y Acciones ---
+button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: $transition;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Botón de Volver (Header)
+.btn-back {
+  background: transparent;
+  color: $text-muted;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    color: $text-main;
+  }
+}
+
+// Barra inferior de acciones
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  // Botón Cancelar
+  .btn-cancel {
+    background-color: #f1f5f9;
+    color: #475569;
+
+    &:hover:not(:disabled) {
+      background-color: #e2e8f0;
+      color: $text-main;
+    }
+  }
+
+  // Botón Guardar / Actualizar
+  .btn-save {
+    background-color: $primary-color;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-hover;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+:host { display: block; height: 100vh; background: #f5f6fa; }
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 { font-size: 22px; font-weight: 500; color: #1a1a1a; }
+  .sub { font-size: 13px; color: #888; margin-top: 2px; }
+}
+
+.btn-primary {
+  background: #0C447C;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  &:hover { background: #185FA5; }
+}
+
+.error {
+  background: #FCEBEB;
+  color: #A32D2D;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 13px;
+}
+
+.loading { color: #888; font-size: 14px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0.5px solid #ddd;
+
+  th {
+    background: #0C447C;
+    color: #E6F1FB;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  td {
+    padding: 11px 14px;
+    font-size: 13px;
+    color: #1a1a1a;
+    border-bottom: 0.5px solid #eee;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8f9fc; }
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+
+  &.creado       { background: #E6F1FB; color: #0C447C; }
+  &.en\ tránsito { background: #FAEEDA; color: #633806; }
+  &.entregado    { background: #EAF3DE; color: #27500A; }
+  &.cancelado    { background: #FCEBEB; color: #791F1F; }
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+
+  button {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 0.5px solid #ddd;
+    background: #fff;
+    &:disabled { opacity: 0.4; cursor: not-allowed; }
+  }
+
+  .btn-edit   { color: #0C447C; &:hover { background: #E6F1FB; } }
+  .btn-cancel { color: #854F0B; &:hover { background: #FAEEDA; } }
+  .btn-delete { color: #A32D2D; &:hover { background: #FCEBEB; } }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-size: 13px;
+  color: #555;
+
+  button {
+    padding: 7px 14px;
+    border: 0.5px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    &:disabled { opacity: 0.4; cursor: not-allowed; }
+    &:hover:not(:disabled) { background: #E6F1FB; color: #0C447C; }
+  }
+}

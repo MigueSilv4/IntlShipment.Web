@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <h1>Envíos</h1>
+      <p class="sub">Gestión de envíos internacionales</p>
+    </div>
+    <button class="btn-primary" (click)="new()">+ Nuevo envío</button>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+  <div class="loading" *ngIf="loading">Cargando...</div>
+
+  <div *ngIf="!loading && !error">
+    
+    <table *ngIf="shipments && shipments.length > 0">
+      <thead>
+        <tr>
+          <th>Guía</th>
+          <th>Origen</th>
+          <th>Destino</th>
+          <th>Remitente</th>
+          <th>Destinatario</th>
+          <th>Peso</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of shipments">
+          <td>{{ s?.numeroGuia }}</td>
+          <td>{{ s?.ciudadOrigen }}, {{ s?.paisOrigen }}</td>
+          <td>{{ s?.ciudadDestino }}, {{ s?.paisDestino }}</td>
+          <td>{{ s?.nombreRemitente }}</td>
+          <td>{{ s?.nombreDestinatario }}</td>
+          <td>{{ s?.pesoKg }} kg</td>
+          <td>
+            <span class="badge" [class]="(s?.estado || '') | lowercase">{{ s?.estado }}</span>
+          </td>
+          <td class="actions">
+            <button class="btn-edit" (click)="edit(s.id!)">Editar</button>
+            <button class="btn-cancel" (click)="cancel(s.id!)" [disabled]="s.estado === 'Entregado' || s.estado === 'Cancelado'">Cancelar</button>
+            <button class="btn-delete" (click)="delete(s.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="no-data" *ngIf="shipments && shipments.length === 0">
+      <p>No se encontraron envíos registrados en esta página.</p>
+    </div>
+
+    <div class="pagination" *ngIf="shipments && shipments.length > 0">
+      <button (click)="prev()" [disabled]="pageIndex === 1">Anterior</button>
+      <span>Página {{ pageIndex }} de {{ totalPages }}</span>
+      <button (click)="next()" [disabled]="pageIndex === totalPages">Siguiente</button>
+    </div>
+
+  </div>
+</div>

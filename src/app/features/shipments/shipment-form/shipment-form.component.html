@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <h1>{{ isEdit ? 'Editar envío' : 'Nuevo envío' }}</h1>
+      <p class="sub">{{ isEdit ? 'Actualiza los datos del envío' : 'Completa los datos del nuevo envío' }}</p>
+    </div>
+    <button type="button" class="btn-back" (click)="cancel()">← Volver</button>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+
+  <div class="form-card">
+    <div class="section">
+      <h3>Información de la guía</h3>
+      <div class="grid-2">
+        <div class="field">
+          <label>Número de guía</label>
+          <input type="text" [(ngModel)]="shipment.numeroGuia" placeholder="Ej: GU-2024-001" />
+        </div>
+        <div class="field">
+          <label>Estado</label>
+          <select [(ngModel)]="shipment.estado">
+            <option *ngFor="let e of estados" [value]="e">{{ e }}</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Fecha estimada de entrega</label>
+          <input type="date" [(ngModel)]="shipment.fechaEstimadaEntrega" />
+        </div>
+        <div class="field">
+          <label>Peso (kg)</label>
+          <input type="number" [(ngModel)]="shipment.pesoKg" placeholder="0.0" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Origen y destino</h3>
+      <div class="grid-2">
+        <div class="field">
+          <label>País origen</label>
+          <input type="text" [(ngModel)]="shipment.paisOrigen" placeholder="Ej: Colombia" />
+        </div>
+        <div class="field">
+          <label>País destino</label>
+          <input type="text" [(ngModel)]="shipment.paisDestino" placeholder="Ej: Estados Unidos" />
+        </div>
+        <div class="field">
+          <label>Ciudad origen</label>
+          <input type="text" [(ngModel)]="shipment.ciudadOrigen" placeholder="Ej: Bogotá" />
+        </div>
+        <div class="field">
+          <label>Ciudad destino</label>
+          <input type="text" [(ngModel)]="shipment.ciudadDestino" placeholder="Ej: Miami" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Remitente y destinatario</h3>
+      <div class="grid-2">
+        <div class="field">
+          <label>Nombre remitente</label>
+          <input type="text" [(ngModel)]="shipment.nombreRemitente" placeholder="Nombre completo" />
+        </div>
+        <div class="field">
+          <label>Nombre destinatario</label>
+          <input type="text" [(ngModel)]="shipment.nombreDestinatario" placeholder="Nombre completo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Mercancía</h3>
+      <div class="field">
+        <label>Descripción de la mercancía</label>
+        <textarea [(ngModel)]="shipment.descripcionMercancia" rows="3" placeholder="Describe el contenido del envío"></textarea>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" (click)="cancel()">Cancelar</button>
+      
+      <button type="button" class="btn-save" (click)="save()" [disabled]="loading">
+        {{ loading ? 'Guardando...' : (isEdit ? 'Actualizar' : 'Crear envío') }}
+      </button>
+    </div>
+  </div>
+</div>
